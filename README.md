@@ -2,11 +2,11 @@
 
 
 #### Roles
-Anya - Project Manager
-Jolene - Product Desginer
-Narin - UI/UX Designer
-Jett - Architect
-Steven - Programmer
+Anya - Project Manager  
+Jolene - Product Desginer  
+Narin - UI/UX Designer  
+Jett - Architect  
+Steven - Programmer  
 
 
 #### Meeting 1 (April 17th, 2026) / In-person discussion
