@@ -2,11 +2,7 @@
 
 # Friendli
 Team Members:  
-Anya Rajesh (anyar2)  
-Narin Park (narinp)  
-Jolene Kwan (kwanjs)  
-Jett Chanka (jchanka)  
-Steven Liu (stevell1)  
+Anya Rajesh (anyar2), Narin Park (narinp), Jolene Kwan (kwanjs), Jett Chanka (jchanka), Steven Liu (stevell1)  
 
 ## Executive Summary
 
