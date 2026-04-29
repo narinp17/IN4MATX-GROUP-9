@@ -44,93 +44,100 @@ Will display a verification badge so people know that their identity is trustwor
 
 
 # Functional Requirements Analyses
-User bio/profile:
+
+User bio/profile
 Pros: 
 - Users can express personality through a short description
 - Interest tags (e.g., #pickleball, #running) improve matching accuracy
 - Helps users quickly decide who they want to interact with
 Cons:
-If a user selects every interest, they can see almost everyone, reducing match quality
-Text-only bios can feel limited and not fully represent a person
-Users might misrepresent themselves
+- If a user selects every interest, they can see almost everyone, reducing match quality
+- Text-only bios can feel limited and not fully represent a person
+- Users might misrepresent themselves
 Ethical Concerns:
-Users could include offensive or inappropriate content
-Misleading bios could create trust issues
+- Users could include offensive or inappropriate content
+- Misleading bios could create trust issues
+- Fixed range for everyone
+
 Fixed range for everyone
 Pros: 
-Keeps matches relevant and local (more realistic for meeting up)
-Simple to implement and understand (same rule for everyone)
-Reduces overwhelming number of users
+- Keeps matches relevant and local (more realistic for meeting up)
+- Simple to implement and understand (same rule for everyone)
+- Reduces overwhelming number of users
 Cons:
-Too restrictive in less populated areas
+- Too restrictive in less populated areas
+- Users cannot customize their experience
+- Might miss good matches slightly outside the range
+Ethical Concerns:
+- Could unintentionally reveal patterns about where users spend time
+- May disadvantage users in rural or low-density areas
 
-
-
-
-Fixed range for everyone:
+Location-based blackouts
 Pros:
-cons:
-Location based black outs:
-Pros:
-cons:
-Transitory group formation/chat:
-Pros: 
+- Protects user privacy (e.g., hiding location at home or work)
+- Gives users more control over when they are visible
+- Increases trust in the app
 Cons:
-Last active status:
+- Requires effort to set up correctly
+- Reduces number of potential matches
+- Users might forget to enable it
+Ethical Concerns:
+- If not implemented properly, could give a false sense of security
+- Incorrect location detection could expose private areas
+
+Transitory group formation/chat
 Pros:
-cons:
+- Encourages spontaneous, real-time interaction
+- No long-term message storage (privacy-friendly)
+- Less database/storage overhead
+Cons:
+- Chats disappear suddenly, which can be frustrating
+- No way to reconnect easily after leaving range
+- Users may lose meaningful conversations
+Ethical Concerns:
+- Lack of chat history makes moderation harder
+- Could allow inappropriate behavior without accountability
 
-# Use Cases: 
-For each of these features, provide at least one Basic Flow, Alternative Flow, and Exceptional Flow that demonstrates an interaction with the app to achieve a user goal.
+Last active status
+Pros:
+- Makes the app feel more active and real
+- Helps users decide who is likely to respond
+- Simple to implement (just a timestamp)
+Cons:
+- Adds pressure to respond quickly
+- Slight privacy concern (others track activity)
+- Can be inaccurate if not updated properly
+Ethical Concerns:
+- Enables passive tracking of user behavior
+- Could make users uncomfortable if they feel watched
 
+Ping/Wave
+Pros:
+- Low-pressure way to show interest
+- Reduces awkwardness of starting a conversation
+- Quick and simple interaction
+Cons:
+- Can be ignored easily
+- Doesn’t allow meaningful communication
+- Could feel repetitive
+Ethical Concerns:
+- Potential for spam (users sending many pings)
+- Could be used to annoy or harass others
 
-1. Creating user bio/profile
-Basic Flow
-User creates an account for the first time.
-Alternative Flow:
+ID Verification
+Pros:
+- Builds trust between users
+- Reduces fake accounts
+- Make users feel safer
+Cons:
+- Adds friction to sign-up process
+- Some users won't want to share ID
+- Requires backend support for verification
+Ethical Concerns:
+- Handling sensitive personal data (security risk)
+- Could exclude users without valid ID
+- Risk of data breaches
 
-
-Exceptional Flow:
-
-
-Fixed range for everyone:
-Basic Flow:
-
-
-Alternative Flow:
-
-
-Exceptional Flow:
-
-
-Location based black outs:
-Basic Flow:
-
-
-Alternative Flow:
-
-
-Exceptional Flow:
-
-
-Transitory group formation/chat:
-Basic Flow:
-
-
-Alternative Flow:
-
-
-Exceptional Flow:
-
-
-Last active status:
-Basic Flow:
-
-
-Alternative Flow:
-
-
-Exceptional Flow:
 
 
 
