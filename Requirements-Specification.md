@@ -19,28 +19,70 @@ The program will be run on a mobile app, supported by both Android and iOS devic
 App may require a database for storage when the user creates an account, last known location. etc
 
 # Functional Requirements: 
-4a. Features implemented from list options:
-Subscribe to multiple interests
-Allows the platform to match people nearby who share overlapping interests, making it easier to discover, connect, or meet with like-minded individuals in real time
-User bio/profile
-Simple profile with a short description
-No images, no fancy formatting, just a text field
-Fixed range for everyone
-Choosing a fixed range (e.g., all users see others within 2 miles)
-Transitory group formation/chat
-If a user leaves the 2-mile radius, the chat simply disappears. This saves us from having to manage long-term database storage for messages.
-Location-based black-outs
-Allows a user to choose to not share their location when they are at a specific spot (like home).
-Own features:
-"Ping" or "Wave" Interaction
-Instead of jumping straight into a full chat, a user can send a "Ping" to someone nearby to show interest in meeting.
-“Last Active” Status
-Show when a user was last active (e.g., “Active 5 mins ago”)
-Just store a timestamp and display it, no real-time tracking needed
-Makes the app feel more alive without complexity
-ID verification
-Users can verify their identity by uploading a government issued photo ID
-Will display a verification badge so people know that their identity is trustworthy (similar to LinkedIn verification badge)
+
+**Core Components**
+
+User
+- Stores: user_id, bio, interests, location, last_active, verification_status, blackout_zones
+- Users can create/edit profiles, manage interests, send pings, chat, and verify identity
+
+
+Interests
+- Users can select multiple interests (many-to-many relationship)
+- Used to match users with similar preferences
+
+
+Matching System
+- Matches users within a fixed radius (e.g., 2 miles)
+- Requires at least one shared interest
+- Excludes users in blackout zones
+
+
+User Bio
+- Text-only profile (character limit)
+- No images or formatting
+- Subject to content moderation
+
+
+Fixed Range
+- All users see others within the same fixed radius
+- Location updates dynamically refresh matches
+
+
+Transitory Chat
+- Chat is created when users connect
+- Automatically deleted when users leave the radius
+- No long-term message storage
+
+
+Blackout Zones
+- Users can hide their location in specific areas
+- Overrides visibility in matching
+
+
+Ping/Wave
+- Lightweight interaction before chatting
+- Chat only starts if ping is accepted
+- May include rate limiting
+
+
+Last Active
+- Stores a timestamp of last activity
+- Displays relative time (e.g., “Active 5 mins ago”)
+
+
+ID Verification
+- Users upload ID for verification
+- Verified users receive a badge
+- Data must be securely handled
+
+
+System Requirements
+- Match users based on proximity + shared interests
+- Enforce fixed radius for all users
+- Support temporary chats and lightweight interactions
+- Provide privacy controls (blackouts)
+- Secure sensitive data (ID verification)
 
 
 # Functional Requirements Analyses
