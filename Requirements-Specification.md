@@ -45,7 +45,7 @@ Will display a verification badge so people know that their identity is trustwor
 
 # Functional Requirements Analyses
 
-User bio/profile
+**User bio/profile**
 
 Pros: 
 - Users can express personality through a short description
@@ -62,7 +62,7 @@ Ethical Concerns:
 - Misleading bios could create trust issues
 
 
-Fixed range for everyone
+**Fixed range for everyone**
 
 Pros: 
 - Keeps matches relevant and local (more realistic for meeting up)
@@ -79,7 +79,7 @@ Ethical Concerns:
 - May disadvantage users in rural or low-density areas
 
 
-Location-based blackouts
+**Location-based blackouts**
 
 Pros:
 - Protects user privacy (e.g., hiding location at home or work)
@@ -96,7 +96,7 @@ Ethical Concerns:
 - Incorrect location detection could expose private areas
 
 
-Transitory group formation/chat
+**Transitory group formation/chat**
 
 Pros:
 - Encourages spontaneous, real-time interaction
@@ -113,7 +113,7 @@ Ethical Concerns:
 - Could allow inappropriate behavior without accountability
 
 
-Last active status
+**Last active status**
 
 Pros:
 - Makes the app feel more active and real
@@ -130,7 +130,7 @@ Ethical Concerns:
 - Could make users uncomfortable if they feel watched
 
 
-Ping/Wave
+**Ping/Wave**
 
 Pros:
 - Low-pressure way to show interest
@@ -147,7 +147,7 @@ Ethical Concerns:
 - Could be used to annoy or harass others
 
 
-ID Verification
+**ID Verification**
 
 Pros:
 - Builds trust between users
@@ -164,6 +164,108 @@ Ethical Concerns:
 - Could exclude users without valid ID
 - Risk of data breaches
 
+# Use Cases
+
+**Creating user bio/profile**
+
+Basic Flow:
+- User signs up
+- User enters bio and selects interests
+- User saves profile -> profile becomes visible
+
+Alternative Flow:
+- User skips bio initially
+- Later edits profile to add interests and description
+
+Exceptional Flow:
+- User enters inappropriate content -> system blocks or flags it
+- User fails to save due to network error
 
 
+**Fixed range for everyone**
+
+Basic Flow:
+- User opens app
+- System shows users within 2-mile radius
+
+Alternative Flow:
+- User changes location (moves physically)
+- App refreshes and shows new nearby users
+
+Exceptional Flow:
+- Location permission denied -> system prompts user to enable it
+- GPS unavailable -> no matches shown
+
+
+**Location-based blackouts**
+
+Basic Flow:
+- User sets a blackout zone (e.g., home)
+- App hides their location when in that area
+
+Alternative Flow:
+- User edits or removes blackout zone
+- Visibility updates accordingly
+
+Exceptional Flow:
+- GPS error -> blackout not triggered correctly
+- System fails to save blackout zone
+
+
+**Transitory group formation/chat**
+
+Basic Flow:
+- Two users are matched nearby
+- Chat is automatically created
+- Users exchange messages
+
+Alternative Flow:
+- One user leaves range -> chat disappears
+- Users reconnect later if they meet again
+
+Exceptional Flow:
+- Message fails to send due to network issue
+- Chat closes unexpectedly due to local glitch
+
+
+**Last active status**
+
+Basic Flow:
+- Users opens app -> timestamp updates
+- Other users see "Active X minutes ago"
+
+Alternative Flow:
+- User becomes inactive -> timestamp reflects last session
+
+Exceptional Flow:
+- Timestamp fails to update -> shows incorrect activity
+- System crash -> activity not recorded
+
+
+**Ping/Wave**
+
+Basic Flow:
+- User taps "Ping" on another user
+- Receiver accepts -> chat opens
+
+Alternative Flow:
+- Receiver ignores -> no interaction happens
+
+Exceptional Flow:
+- User sends too many pings -> system rate-limits or blocks
+- Ping fails due to connectivity issue
+
+
+**ID Verification**
+
+Basic Flow:
+- User uploads ID
+- System verifies -> badge appears on profile
+
+Alternative Flow:
+- Verification pending -> user continues without badge
+
+Exceptional Flow:
+- Verification fails -> user asked to retry
+- Upload error -> process restarts
 
