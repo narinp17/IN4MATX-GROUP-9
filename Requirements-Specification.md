@@ -4,7 +4,7 @@
 Team Members: Anya Rajesh (anyar2), Narin Park (narinp), Jolene Kwan (kwanjs)
 Jett Chanka (jchanka), Steven Liu (stevell1)
 
-# Executive Summary: 
+# Executive Summary
 
 Friendli is a mobile app designed to help college students discover and connect with nearby individuals who share similar interests and hobbies. By optionally enabling real-time location sharing, the app facilitates spontaneous, in-person social interactions within a defined local radius, making it easier for users to form meaningful  connections in their immediate environment.
 The primary target audience consists of college students with access to a mobile device with internet/cellular access who are seeking to expand their social circles in a convenient and low-pressure way. The app addresses the challenges of meeting new people in a large or unfamiliar environment by leveraging shared interests and proximity as key drivers of connection. 
@@ -13,12 +13,12 @@ To maintain simplicity and reduce long-term data storage, the app uses a fixed p
 Overall, [Name of Software] focuses on enabling safe, spontaneous, and interest-driven connections while prioritizing user privacy, simplicity, and real-world interaction.
 
 
-# Application Context / Environmental Constraints: 
+# Application Context / Environmental Constraints
 Where will the app run (physically, in the world)? What type of hardware/platforms? What might the app depend on or interact with?
 The program will be run on a mobile app, supported by both Android and iOS devices.
 App may require a database for storage when the user creates an account, last known location. etc
 
-# Functional Requirements: 
+# Functional Requirements
 
 **Core Components**
 
