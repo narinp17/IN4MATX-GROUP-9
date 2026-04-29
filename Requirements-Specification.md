@@ -24,60 +24,60 @@ App may require a database for storage when the user creates an account, last kn
 
 **Core Components**
 
-User
-- Stores: user_id, bio, interests, location, last_active, verification_status, blackout_zones
-- Users can create/edit profiles, manage interests, send pings, chat, and verify identity
-
+User Management
+- The system shall allow users to create and edit personal profiles.
+- The system shall allow users to manage their interests and preferences.
+- The system shall allow users to send pings and initiate chats with other users.
+- The system shall support identity verification for those who choose to verify.
 
 Interests
-- Users can select multiple interests (many-to-many relationship)
-- Used to match users with similar preferences
-
+- The system shall allow users to select and manage multiple interests (many-to-many relationship).
+- The system shall only match users who share at least one similar interest or preference.
 
 Matching System
-- Matches users within a fixed radius (e.g., 2 miles)
-- Requires at least one shared interest
-- Excludes users in blackout zones
+- The system shall display other users located within a fixed radius (e.g., 2 miles).
+- The system shall only match users who are both within range and share at least one interest.
+- The system shall exclude users whose locations fall within a defined blackout zone.
 
 
 User Bio
-- Text-only profile (character limit)
-- No images or formatting
-- Subject to content moderation
+- The system shall allow users to create a text-only profile subject to a 300-character limit.
+- The system shall restrict unsupported formatting and media content, including images.
+- The system shall be subject to content moderation to all user-submitted bio text.
 
 
 Fixed Range
-- All users see others within the same fixed radius
-- Location updates dynamically refresh matches
+- The system shall apply the same fixed radius uniformly to all users.
+- The system shall dynamically refresh matches when a user's location updates.
 
 
 Transitory Chat
-- Chat is created when users connect
-- Automatically deleted when users leave the radius
-- No long-term message storage
+- The system shall create a chat session when two users mutually connect.
+- The system shall automatically delete or disable a chat session when either user leaves the defined radius.
+- The system shall not retain chat messages after a session ends.
 
 
 Blackout Zones
-- Users can hide their location in specific areas
-- Overrides visibility in matching
+- The system shall allow users to designate specific geographic areas as blackout zones.
+- The system shall hide a user's location and exclude them from match results while they are within a blackout zone.
 
 
 Ping/Wave
-- Lightweight interaction before chatting
-- Chat only starts if ping is accepted
-- May include rate limiting
+- The system shall allow users to send a "ping" as a lightweight interaction prior to initiating a chat.
+- The system shall only create a chat session if the recipient accepts the ping.
+- The system shall enforce rate limiting on pings to prevent spam.
 
 
-Last Active
-- Stores a timestamp of last activity
-- Displays relative time (e.g., “Active 5 mins ago”)
+Last Active Status
+- The system shall record and store a timestamp of a user's most recent activity.
+- The system shall display relative activity status (e.g., “Active 5 mins ago”).
 
 
 ID Verification
-- Users upload ID for verification
-- Verified users receive a badge
-- Data must be securely handled
-
+- The system shall allow users to upload a government-issued ID for identity verification.
+- The system shall assign a verification badge to users upon successful verification.
+- The system shall transmit all uploaded identification data over encrypted channels and process it via a third-party verification service.
+- The system shall permanently delete all uploaded identification data immediately after verification is complete.
 
 System Requirements
 - Match users based on proximity + shared interests
