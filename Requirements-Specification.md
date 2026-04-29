@@ -14,9 +14,11 @@ Overall, Friendli focuses on enabling safe, spontaneous, and interest-driven con
 
 
 ## Application Context / Environmental Constraints
-Where will the app run (physically, in the world)? What type of hardware/platforms? What might the app depend on or interact with?
-The program will be run on a mobile app, supported by both Android and iOS devices.
-App may require a database for storage when the user creates an account, last known location. etc
+
+The program will be run on a mobile app, supported by both Android and iOS devices, but should require a stable internet connection (Wi-Fi or ceelular data) for it to be able to give real-time updates to the user (such as location sharing, user discovery, and messaging).
+Compatibility should account for a range of device models and versions of phones so that the app is able to run on old and new versions (old meaning moderately older smartphones).
+It should be able to run on our devices anywhere in the world, whether that be in a house/building, or out in a park.
+App may require a database for storage when the user creates an account, last known location. etc. It will depend on cloud-based backend infrastructure to manage user authentication, profile data, tags, and temp chat sessions. It should also rely on device hardware including GPS/location services, push notification systems, and basic sensors to determine proximity and activity status.
 
 # Functional Requirements
 
