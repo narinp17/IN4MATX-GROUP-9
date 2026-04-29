@@ -20,6 +20,30 @@ Compatibility should account for a range of device models and versions of phones
 It should be able to run on our devices anywhere in the world, whether that be in a house/building, or out in a park.
 App may require a database for storage when the user creates an account, last known location. etc. It will depend on cloud-based backend infrastructure to manage user authentication, profile data, tags, and temp chat sessions. It should also rely on device hardware including GPS/location services, push notification systems, and basic sensors to determine proximity and activity status.
 
+Network & Connectivity
+Core features — including location-based matching, proximity detection, and real-time messaging — require an active internet connection. The app should degrade gracefully under poor connectivity: for example, displaying a cached "Last Active" timestamp rather than erroring out when live data is unavailable. Location updates and match refreshes will be triggered periodically or on significant location change events to balance responsiveness with battery usage.
+
+Backend & Cloud Infrastructure
+Friendli depends on a cloud-hosted backend to handle all server-side logic and storage. This includes:
+
+User accounts and profiles (persistent storage)
+Interest tags and matching logic (query-based filtering by proximity + shared interests)
+Last-known location and "Last Active" timestamps (updated periodically, not continuously tracked)
+Transitory group chat sessions (ephemeral; automatically purged when users leave the radius)
+Blackout zone coordinates (stored per user, never shared with other users or used in matching while active)
+
+All communication between the app and backend must occur over encrypted channels (HTTPS/TLS). Location data should be stored minimally — only the most recent known position is retained, with no location history logged.
+
+Usage Environment
+The app is designed primarily for use in outdoor and semi-public environments — college campuses, parks, cafes, libraries, and recreational areas. User sessions are expected to be short and mobile, so the interface must be fast-loading and operable one-handed. Because users are on the move, the app must handle frequent location updates and match refreshes without noticeable lag or excessive battery drain. The app does not require continuous background operation; periodic foreground location updates are sufficient given the 2-mile fixed radius.
+Privacy & Legal Constraints
+Friendli collects location data and optionally processes government-issued identity documents, both of which are regulated categories of personal data. The app must comply with applicable privacy regulations including CCPA (California) and GDPR (if deployed to international users), as well as Apple App Store and Google Play Store data privacy policies. Key requirements include:
+
+Explicit, informed user consent before enabling location sharing, with the ability to revoke at any time
+Blackout zone logic should be evaluated client-side where feasible to avoid transmitting sensitive location data (e.g., a user's home address) to the server
+All uploaded ID documents must be deleted immediately after verification is complete, with no copies retained on Friendli's infrastructure
+Users must be clearly informed about what data is collected, how long it is retained, and who it is shared with
+
 # Functional Requirements
 
 **Core Components**
