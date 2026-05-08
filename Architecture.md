@@ -3,10 +3,10 @@
 ## Overall Architecture Summary
 
 ## Platforms
-Possible Platforms:
+Possible Platforms -
   Frontend: React Native
   Backend: GraphQL
-  Database: PostgreSQL
+  Database: PostgreSQL (User Info), Redis (Location & Chat Cache)
 
 ## Progamming Languages
 
