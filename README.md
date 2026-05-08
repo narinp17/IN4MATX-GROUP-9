@@ -23,6 +23,7 @@ To do: Finish the requirements specification document by Wednesday April 29 at 1
 
 #### Meeting 3 (May 1, 2026) / In-person discussion
 
+We paid attention to the slides the TA presented.
 
 #### Meeting 4 (May 8, 2026) / In-person discussion
 Project update for HW 2 (Architecture)
