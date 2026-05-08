@@ -3,7 +3,7 @@
 
 #### Roles
 Anya - Project Manager  
-Jolene - Product Desginer  
+Jolene - Product Designer  
 Narin - UI/UX Designer  
 Jett - Architect  
 Steven - Programmer  
@@ -20,3 +20,9 @@ We looked through the optional requirements and picked 5 different options that 
 Present: Jolene, Anya, Steven  
 We pitched our project (presented to the class) and updated a few program features).
 To do: Finish the requirements specification document by Wednesday April 29 at 1pm.
+
+#### Meeting 3 (May 1, 2026) / In-person discussion
+
+
+#### Meeting 4 (May 8, 2026) / In-person discussion
+Project update for HW 2 (Architecture)
