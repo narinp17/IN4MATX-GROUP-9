@@ -3,6 +3,10 @@
 ## Overall Architecture Summary
 
 ## Platforms
+Possible Platforms:
+  Frontend: React Native
+  Backend: GraphQL
+  Database: PostgreSQL
 
 ## Progamming Languages
 
