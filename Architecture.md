@@ -10,4 +10,4 @@
 
 ## Examples of Component Functions and Connector Communications
 
-## Prototype Implementation
+## Prototype Implementation + Reflection
