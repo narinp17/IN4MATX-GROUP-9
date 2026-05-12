@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Friendli Frontend</title>
+</head>
+
+<body>
+  <h1>Friendli</h1>
+
+  <button onclick="getUsers()">Get Nearby Users</button>
+
+  <pre id="output"></pre>
+
+  <script>
+    async function getUsers() {
+      const res = await fetch("http://localhost:3000/nearby-users");
+      const data = await res.json();
+
+      document.getElementById("output").textContent =
+        JSON.stringify(data, null, 2);
+    }
+  </script>
+</body>
+</html>
