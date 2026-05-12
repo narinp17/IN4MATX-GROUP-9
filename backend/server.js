@@ -1,5 +1,6 @@
 // importing a tool (Express)
 const express = require("express");
+const cors = require("cors");
 
 // initalizing a backend server
 const app = express();
