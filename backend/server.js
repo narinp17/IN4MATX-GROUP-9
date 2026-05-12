@@ -1,11 +1,12 @@
 // importing a tool (Express)
-const express = require("express");
 const cors = require("cors");
+const express = require("express");
 
 // initalizing a backend server
 const app = express();
 
 // allow JSON data sent from frontend
+app.use(cors());
 app.use(express.json());
 
 // Test route
