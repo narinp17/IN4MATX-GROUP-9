@@ -29,8 +29,8 @@ Possible Platforms -
 
 ## Communication Protocols
 - The system will use REST APIs over HTTP/HTTPS for operations such as user authentication, profile updates, location updates, retrieving nearby users, and sending ping requests.
-- WebSockets will be used to support real-time bidirectional communication between clients and the server. This includes chat messaging, ping acceptances, and live status updates.
-- SQL queries will be used to interact with the PostgreSQL database for persistent data storage and retrieval, including user profiles, interests, location data, and chat session metadata.
+- WebSockets will be used for real-time, bidirectional communication, including instant chat messaging, ping notifications, and live "radius exit" alerts to ensure users don't have to manually refresh to see new interactions
+- SQL and Spqtial Queries (PostGID) will be used to intereact with the PostgreSQL database, allowing the system to quickly filter users within the 2-mile radius without manual coordinate math on the server.
 
 ## Examples of Component Functions and Connector Communications
 
