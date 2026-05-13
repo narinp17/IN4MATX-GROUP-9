@@ -281,7 +281,7 @@ chat_sessions table: session_id, user_a_id, user_b_id, created_at, is_active
 
 ### Last Active Status Workflow
 
-Whenever a user performs an action in the app, a frontend sends an activity update request to the backend. The backend records the latest timestamp in the database. When another user views that profile, the backend returns the relative activity status data (such as "Active 5 mins ago"), which the frontend displays.
+Whenever a user performs an action in the app, the frontend sends an activity update request to the backend. The backend records the latest timestamp in the database. When another user views that profile, the backend returns the relative activity status data (such as "Active 5 mins ago"), which the frontend displays.
 
 **Frontend function:** `sendActivityUpdate()`
 
