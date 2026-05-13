@@ -10,7 +10,7 @@ The backend server is built with Node.js and Express and would run on a cloud pl
 
 The database stores user accounts, bios, interest tags, blackout zones, last active timestamps, and temporary chat metadata. Sensitive data is minimized whenever possible. For example, uploaded ID images are deleted immediately after verification, and temporary chats are not permanently stored.
 
-Friendli mainly uses a client-server design style because it separates frontend and backend responsibilities, making the system easier to maintain and scale. The system also uses a layered architecture, separating the user interface, application logic, and database into distinctlayers. RESTful API communication allows lightweight and standardized interaction between system components.
+Friendli mainly uses a client-server design style because it separates frontend and backend responsibilities, making the system easier to maintain and scale. The system also uses a layered architecture, separating the user interface, application logic, and database into distinct layers. RESTful API communication allows lightweight and standardized interaction between system components.
 
 For the purposes of this course, all components (the frontend, backend, and database) will run locally on a development machine. In a future production deployment, the backend and database would be hosted on AWS.
 
@@ -119,7 +119,7 @@ interests table: user_id, interest_tag
 
 ### Nearby User Matching
 
-When a user opens the app, the frontend retrieves the user's GPS location and sends it to the backend. The backend uses spatial indexing to qury the database for users within the 2-mile radius who share at least one interest. The backend then returns nearby user data in JSON format, which the frontend displays. To protect user privacy and prevent "triangulation," the backend may return "fuzzy" proximity labels (e.g., "within 0.5 miles") rather than exact GPS coordinates.
+When a user opens the app, the frontend retrieves the user's GPS location and sends it to the backend. The backend uses spatial indexing to query the database for users within the 2-mile radius who share at least one interest. The backend then returns nearby user data in JSON format, which the frontend displays. To protect user privacy and prevent "triangulation," the backend may return "fuzzy" proximity labels (e.g., "within 0.5 miles") rather than exact GPS coordinates.
 **Frontend function:** `getNearbyUsers()`
 
 **Connector — REST GET request to `/api/nearby-users`:**
@@ -247,7 +247,7 @@ When the app detects a location update, the frontend sends updated GPS coordinat
 
 ### Transitory Chat Workflow
 
-After two users accept each other's pings, the backend creates a temporary chat session. Messages are transmitted via WebSockets for sub-second latency. If either user leave the 2-mile radius, the backend deletes the session. To prevent the chat from closing due to minor GPS signal "jitter," the system implements a grace period, waiting 60 seconds before permanently deleing a session when a user appears to leave the radius.
+After two users accept each other's pings, the backend creates a temporary chat session. Messages are transmitted via WebSockets for sub-second latency. If either user leaves the 2-mile radius, the backend deletes the session. To prevent the chat from closing due to minor GPS signal "jitter," the system implements a grace period, waiting 60 seconds before permanently deleting a session when a user appears to leave the radius.
 
 **Frontend function:** `openChatSession(userId, matchedUserId)`
 
