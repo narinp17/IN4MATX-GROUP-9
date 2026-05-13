@@ -15,25 +15,19 @@ Friendli mainly uses a client-server design style because it separates frontend 
 For the purposes of this course, all components (the frontend, backend, and database) will run locally on a development machine. In a future production deployment, the backend and database would be hosted on AWS.
 
 
-## Platforms
-  Mobile Frontend: React Native    
-  Backend: Node.js with Express (and Socket.io for WebSockets)  
-  Database: PostgreSQL (User Info), Redis (Location & Chat Cache)  
-
-
  ## Platforms
  
-**Mobile Frontend — React Native (iOS and Android)**
+**Mobile Frontend — React Native (iOS and Android)**  
 We chose React Native because it allows us to build a single codebase that runs on both iOS and Android. For a small team, maintaining two separate native codebases in Swift and Kotlin would be impractical. React Native also has strong community support and documentation, which is helpful for a team still learning. Our current prototype uses plain HTML and JavaScript, with React Native planned for future iterations as the team's experience grows.
 - Benefit: one codebase runs on both iOS and Android, saving significant development time for a small team
 - Drawback: harder to debug than fully native development, and some device-specific features like precise GPS behavior may require additional configuration
 
-**Backend Server — Node.js with Express**
+**Backend Server — Node.js with Express**  
 We chose Node.js with Express because it uses JavaScript, the same language our team is already using for the frontend, meaning we do not have to learn a second language to build the backend. Node.js also handles many simultaneous connections efficiently, which suits a real-time app where multiple users may be sending location updates or pings at the same time. The backend will run on AWS in production and locally during development.
 - Benefit: JavaScript on both frontend and backend means one language across the whole project, reducing complexity for a beginner team
 - Drawback: Node.js is single-threaded, meaning computationally heavy tasks can slow it down, though for our use case most operations are lightweight data lookups
 
-**Database — PostgreSQL with PostGIS**
+**Database — PostgreSQL with PostGIS**  
 We chose PostgreSQL because it is reliable, well-documented, and widely used, making it easy to find learning resources. The PostGIS extension adds built-in support for geographic queries, allowing us to find all users within a 2-mile radius directly at the database level rather than calculating distances manually in backend code. We chose a single database rather than adding a second caching layer like Redis in order to keep our infrastructure manageable for our team's experience level. The database will run on AWS RDS in production and locally during development.
 - Benefit: PostGIS handles 2-mile radius proximity queries natively, no manual distance math needed in the backend
 - Drawback: more setup and configuration than beginner-friendly options like Firebase, and complex spatial queries have a learning curve
@@ -42,10 +36,22 @@ We chose PostgreSQL because it is reliable, well-documented, and widely used, ma
 
 ## Progamming Languages
 
-- **JavaScript** will be used for both frontend and backend development. The frontend prototype was implemented using HTML, CSS, and JavaScript, while the backend server uses Node.js and Express for handling API requests, authentication, matching logic, and chat session management.
-- **HTML/CSS** are used for structuring and styling the current frontend prototype interface.
-- **SQL** wlil be used for interacting with the PostgreSQL database, including storing and retrieving user profiles, interests, blackout zones, timestamps, and temporary chat metadata.
-- In future iterations, **TypeScript** may be introduced alongside **React Native** to improve code, maintainability, scalability, and type safety for the mobile application.
+**JavaScript** will be used for both frontend and backend development. The frontend prototype was implemented using HTML, CSS, and JavaScript, while the backend server uses Node.js and Express for handling API requests, authentication, matching logic, and chat session management.
+- Benefit: one language across the full stack means less context switching and more flexibility across the team
+- Drawback: JavaScript's loosely typed nature means errors that could be caught early in other languages may only appear at runtime, making debugging harder
+  
+**HTML/CSS** are used for structuring and styling the current frontend prototype interface.
+- Benefit: easy to learn and fast to prototype with, no build tools or frameworks required
+- Drawback: not suitable for a production mobile app, which is why we plan to transition to React Native in future iterations
+  
+**SQL** will be used for interacting with the PostgreSQL database, including storing and retrieving user profiles, interests, blackout zones, timestamps, and temporary chat metadata.
+- Benefit: well-documented and widely taught, making it approachable for our team
+- Drawback: complex spatial queries using PostGIS have a learning curve we expect to encounter as development continues
+
+**TypeScript — Planned for Future Iterations**  
+In future iterations, TypeScript may be introduced alongside React Native to improve code maintainability, scalability, and type safety for the mobile application.
+- Benefit: catches type errors at development time rather than runtime, improving code reliability
+- Drawback: adds setup complexity and a learning curve that is not practical for our current prototype stage
 
 
 ## Communication Protocols
@@ -64,8 +70,8 @@ When a user creates or edits a profile, the frontend sends the user's display na
 **Connector — REST POST request to `/api/profile`:**
 ```json
 {
-  "userId": "abc123",
-  "displayName": "Jordan",
+  "userId": "peteranteater",
+  "displayName": "Peter",
   "bio": "I love hiking and board games!",
   "interests": ["hiking", "board games", "photography"]
 }
@@ -95,7 +101,7 @@ When a user opens the app, the frontend retrieves the user's GPS location and se
 **Connector — REST GET request to `/api/nearby-users`:**
 ```json
 {
-  "userId": "abc123",
+  "userId": "peteranteater",
   "latitude": 33.6405,
   "longitude": -117.8443
 }
@@ -115,8 +121,8 @@ AND is_hidden = false;
 ```json
 {
   "users": [
-    { "id": 1, "name": "Alex", "interests": ["running", "music"], "distance": 1.2 },
-    { "id": 2, "name": "Jamie", "interests": ["gaming", "art"], "distance": 0.7 }
+    { "id": 1, "name": "Jake", "interests": ["running", "music"], "distance": 1.2 },
+    { "id": 2, "name": "Layla", "interests": ["gaming", "art"], "distance": 0.7 }
   ]
 }
 ```
@@ -132,8 +138,8 @@ When a user taps the "Ping" button, the frontend sends a request containing the 
 **Connector — REST POST request to `/api/send-ping`:**
 ```json
 {
-  "from": "abc123",
-  "to": "xyz789"
+  "from": "smiski",
+  "to": "labubu"
 }
 ```
 
@@ -145,7 +151,7 @@ pings table: ping_id, sender_id, recipient_id, status, created_at
 **Connector — REST response:**
 ```json
 {
-  "message": "Ping sent from abc123 to xyz789"
+  "message": "Ping sent from smiski to labubu"
 }
 ```
 
@@ -160,7 +166,7 @@ Users can create blackout zones through the frontend by selecting areas on a map
 **Connector — REST POST request to `/api/blackout-zone`:**
 ```json
 {
-  "userId": "abc123",
+  "userId": "peteranteater",
   "zoneName": "Home",
   "latitude": 33.6405,
   "longitude": -117.8443,
@@ -194,7 +200,7 @@ When the app detects a location update, the frontend sends updated GPS coordinat
 **Connector — REST POST request to `/api/location-update`:**
 ```json
 {
-  "userId": "abc123",
+  "userId": "peteranteater",
   "latitude": 33.6412,
   "longitude": -117.8450
 }
@@ -206,7 +212,7 @@ When the app detects a location update, the frontend sends updated GPS coordinat
 ```json
 {
   "users": [
-    { "id": 1, "name": "Alex", "interests": ["running", "music"], "distance": 0.9 },
+    { "id": 1, "name": "Jake", "interests": ["running", "music"], "distance": 0.9 },
     { "id": 3, "name": "Riley", "interests": ["music", "art"], "distance": 1.5 }
   ]
 }
@@ -226,7 +232,7 @@ After two users accept each other's pings, the backend creates a temporary chat 
 {
   "event": "chat_opened",
   "sessionId": "session_001",
-  "participants": ["abc123", "xyz789"]
+  "participants": ["peteranteater", "labubu"]
 }
 ```
 
@@ -258,7 +264,7 @@ Whenever a user performs an action in the app, a frontend sends an activity upda
 **Connector — REST POST request to `/api/activity`:**
 ```json
 {
-  "userId": "abc123",
+  "userId": "peteranteater",
   "timestamp": "2025-04-10T14:32:00Z"
 }
 ```
@@ -273,7 +279,7 @@ users table: user_id, last_active
 **Connector — REST response:**
 ```json
 {
-  "userId": "abc123",
+  "userId": "peteranteater",
   "lastActive": "Active 5 mins ago"
 }
 ```
@@ -289,7 +295,7 @@ To minimize security risks, the frontend uploads the encrypted ID image directly
 **Connector — REST POST request to `/api/verify-identity`:**
 ```json
 {
-  "userId": "abc123",
+  "userId": "peteranteater",
   "uploadConfirmed": true
 }
 ```
@@ -314,10 +320,10 @@ users table: user_id, is_verified, verified_at
 
 
 ## Prototype Implementation + Reflection
-We implemented a basic full-stack prototype of Friendli consisting of a frontend built with HTML/JavaScript and a backend built with Node.js and Express. The frontend sends an HTTP request to a /nearby-users API endpoint, and the backend responds with mock user data in JSON format, which is then displayed on the frontend.
+We implemented a basic full-stack prototype of Friendli consisting of a frontend built with HTML and JavaScript and a backend built with Node.js and Express. The current prototype implements two workflows: nearby user retrieval (`GET /nearby-users`) and ping sending (`POST /send-ping`). The backend responds with hardcoded mock data to simulate real functionality. All components currently run locally on a development machine (our laptop), which is sufficient for this stage of the course. The remaining workflows have not yet been implemented in code.
 
-Communication between components is handled using RESTful HTTP requests and JSON. During development, we encountered challenges related to browser security restrictions (CORS), which required enabling CORS middleware on the backend. We also faced initial difficulties setting up Git and synchronizing local and remote repositories.
+Communication between components is handled using RESTful HTTP requests and JSON. During development we encountered challenges related to browser security restrictions (CORS), which required enabling CORS middleware on the backend. We also faced initial difficulties setting up Git and synchronizing local and remote repositories.
 
-Through this prototype, we gained experience with client-server architecture, API communication, and debugging full-stack applications. We also developed a better understanding of how frontend and backend systems interact in a real-world application.
+Through this prototype we gained experience with client-server architecture, API communication, and debugging full-stack applications. We developed a better understanding of how frontend and backend systems interact in a real application.
 
-In future iterations, we plan to transition the frontend into a React-based implementation to improve scalability and component structure. We also aim to eventually develop a mobile-first version of Friendli using React Native to better support real-time, location-based social interactions.
+In future iterations, we plan to transition the frontend to React Native for mobile support, integrate a PostgreSQL database with PostGIS for real proximity queries, and add Socket.io for real-time chat and ping notifications. For production deployment, the backend and database will be hosted on AWS.
