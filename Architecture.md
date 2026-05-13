@@ -2,22 +2,30 @@
 
 ## Overall Architecture Summary
 
-Friendli follows a client-server architecture designed for mobile devices. The system consists of a mobile frontend application, a backend API server, a database, and external services such as push notifications and ID verification. These components communicate through RESTful APIs using JSON over HTTPs, supplemented by WebSockets for real-time events.
+Friendli follows a client-server architecture designed for mobile devices. The system consists of a mobile frontend application, a backend API server, a database, and external services such as push notifications and ID verification. These components communicate through RESTful APIs using JSON over HTTPS, supplemented by WebSockets for real-time events.
 
-The frontend application runs on Android and iOS devices. It is responsible for displaying nearby users, managing profiles, sending pings, handling temporary chats, and managing privacy settings such as blackout zones. Our current prototype frontend was built using HTML and JavaScript, but future versions will likely use React Native for better scalability and mobile support. To ensure a smooth user experience, the frontend implements "Graceful Degradation," displaying cached data (like the last known match list) if the internet connecction is temporarily lost.
+The frontend application runs on Android and iOS devices. It is responsible for displaying nearby users, managing profiles, sending pings, handling temporary chats, and managing privacy settings such as blackout zones. Our current prototype frontend was built using HTML and JavaScript, but future versions will likely use React Native for better scalability and mobile support. To ensure a smooth user experience, the frontend implements "Graceful Degradation," displaying cached data (like the last known match list) if the internet connection is temporarily lost.
 
-The backend server is built with Node.js and Express and would run on a cloud platform such as AWS. The backend handles authentication, user matching, chat session management, ping rate limiting, location filtering, and communication with third-party verification services. It also processes nearby-user requests by checking proximity and shared interests. To handle location-based queries efficiently at scale, the backend utilizes PostGIS (a spatial database extender) to perform high-speed proximity calculations directly within the database layer.
+The backend server is built with Node.js and Express and would run on a cloud platform such as AWS. The backend handles authentication, user matching, chat session management, ping rate limiting, location filtering, and communication with third-party verification services. It also processes nearby-user requests by checking proximity and shared interests. To handle location-based queries efficiently, the backend utilizes PostGIS (a spatial database extender) to perform high-speed proximity calculations directly within the database layer.
 
-The database stores user accounts, bios, interest tags, blackoutzones, last active timestamps, and temporary chat metadata. Sensitive data is minimized whenever possible. For example, uploaded ID images are deleted immediately after verification, and temporary chats are not permanently stored.
+The database stores user accounts, bios, interest tags, blackout zones, last active timestamps, and temporary chat metadata. Sensitive data is minimized whenever possible. For example, uploaded ID images are deleted immediately after verification, and temporary chats are not permanently stored.
 
 Friendli mainly uses a client-server design style because it separates frontend and backend responsibilities, making the system easier to maintain and scale. The system also uses a layered architecture, separating the user interface, application logic, and database layers. RESTful API communication allows lightweight and standardized communication between system components.
+
+For the purposes of this course, all components — the frontend, backend, and database — run locally on a development machine. In a future production deployment, the backend and database would be hosted on AWS.
 
 
 ## Platforms
 Possible Platforms -  
   Frontend: React Native  
-  Backend: GraphQL / Node.js with Express (and Socket.io for WebSockets)
+  Backend: Node.js with Express (and Socket.io for WebSockets)  
   Database: PostgreSQL (User Info), Redis (Location & Chat Cache)  
+#### Tradeoff Analysis
+React Native: 
+We chose React Native because it lets us build one app that works on both iOS and Android, which saves time for a small team. The tradeoff is that it can be harder to debug than building separately for each platform.  
+Node.js with Express:
+
+
 
 ## Progamming Languages
 
