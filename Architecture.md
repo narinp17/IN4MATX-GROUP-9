@@ -21,6 +21,12 @@ Possible Platforms -
 
 ## Progamming Languages
 
+- **JavaScript** will be used for both frontend and backend development. The frontend prototype was implemented using HTML, CSS, and JavaScript, while the backend server uses Node.js and Express for handling API requests, authentication, matching logic, and chat session management.
+- **HTML/CSS** are used for structuring and styling the current frontend prototype interface.
+- **SQL** wlil be used for interacting with the PostgreSQL database, including storing and retrieving user profiles, interests, blackout zones, timestamps, and temporary chat metadata.
+- In future iterations, **TypeScript** may be introduced alongside **React Native** to improve code, maintainability, scalability, and type safety for the mobile application.
+
+
 ## Communication Protocols
 - The system will use REST APIs over HTTP/HTTPS for operations such as user authentication, profile updates, location updates, retrieving nearby users, and sending ping requests.
 - WebSockets will be used to support real-time bidirectional communication between clients and the server. This includes chat messaging, ping acceptances, and live status updates.
