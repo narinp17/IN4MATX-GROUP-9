@@ -40,7 +40,7 @@ When a user creates or edits a profile, the frontend sends the user's display na
 
 ### Nearby User Matching
 
-When a user opens the app, the frontend retrieves the user's GPS location and sends it to the backend through an API request. The backend checks the database for users within the 2-mile radius who share at least one interest and are not hidden by blackout zones. The backend then returns nearby user data in JSON format, including usernames, bios, interests, and last active timestamps, which the frontend displays to the user.
+When a user opens the app, the frontend retrieves the user's GPS location and sends it to the backend. The backend uses spatial indexing to qury the database for users within the 2-mile radius who share at least one interest. The backend then returns nearby user data in JSON format, which the frontend displays. To protect user privacy and prevent "triangulation," the backend may return "fuzzy" proximity labels (e.g., "within 0.5 miles") rather than exact GPS coordinates.
 
 ### Ping/Wave Workflow
 
@@ -48,7 +48,7 @@ When a user taps the "Ping" button, the frontend sends a request containing the 
 
 ### Blackout Zone Workflow
 
-Users can create blackout zones through the frontend by selecting areas on a map. The blackout zone coordinates are stored in the database. When the system detects the user inside one of those zones, the backend hides the user from nearby match results until they leave the area.
+Users can create blackout zones through the frontend by selecting areas on a map. These coordinates are stored in the database. When a location update is received, the backend checks the user's position against their stored blackout zones. If a match is found, the system server-side flags the user as "Hidden," ensuring their data is excluded from all discovery queries until they exit the zone.
 
 ### Fixed Range Workflow
 
@@ -56,7 +56,7 @@ When the app detects a location update, the frontend sends updated GPS coordinat
 
 ### Transitory Chat Workflow
 
-After two users accept each other's pings, the backend creates a temporary chat session and stores session metadata in the database. Messages sent between users are transmitted through API requests and displayed in real time on the frontend. If either user leaves the allowed radius, the backend would delete the session and notify both users that their chat has ended.
+After two users accept each other's pings, the backend creates a temporary chat session. Messages are transmitted via WebSockets for sub-second latency. If either user leave the 2-mile radius, the backend deletes the session. To prevent the chat from closing due to minor GPS signal "jitter," the system implements a grace period, waiting 60 seconds before permanently deleing a session when a user appears to leave the radius.
 
 ### Last Active Status Workflow
 
@@ -64,7 +64,7 @@ Whenever a user performs an action in the app, a frontend sends an activity upda
 
 ### ID Verification Workflow
 
-When a user uploads an ID for verification, the frontend securely sends the encrypted image to the backend. The backend forwards the image to a third-party verification service. After verification is complete, the backend updates the user's verification badge status and deletes the uploaded ID image.
+To minimize security risks, the frontend uploads the encrypted ID image directly to a secure, temporary storage bucket via a "Signed URL." The backend forwards the verification request to a third-party service. Once confirmed, the backend updates the user's verification badge and triggers a permanent deletion of the source image from the temporary storage.
 
 
 ## Prototype Implementation + Reflection
