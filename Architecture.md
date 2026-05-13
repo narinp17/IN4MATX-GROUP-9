@@ -34,7 +34,7 @@ We chose PostgreSQL because it is reliable, well-documented, and widely used, ma
 
 **Note:** In a future iteration, Redis will be added as an in-memory caching layer to handle short-lived data such as live location updates and temporary chat sessions more efficiently, reducing load on the primary PostgreSQL database. 
 
-## Progamming Languages
+## Programming Languages
 
 **JavaScript** will be used for both frontend and backend development. The frontend prototype was implemented using HTML, CSS, and JavaScript, while the backend server uses Node.js and Express for handling API requests, authentication, matching logic, and chat session management.
 - Benefit: one language across the full stack means less context switching and more flexibility across the team
@@ -55,9 +55,33 @@ In future iterations, TypeScript may be introduced alongside React Native to imp
 
 
 ## Communication Protocols
-- The system will use REST APIs over HTTP/HTTPS for operations such as user authentication, profile updates, location updates, retrieving nearby users, and sending ping requests.
-- WebSockets will be used for real-time, bidirectional communication, including instant chat messaging, ping notifications, and live "radius exit" alerts to ensure users don't have to manually refresh to see new interactions
-- SQL and Spqtial Queries (PostGID) will be used to intereact with the PostgreSQL database, allowing the system to quickly filter users within the 2-mile radius without manual coordinate math on the server.
+
+**REST API over HTTPS**  
+The primary communication method between the frontend and backend is REST over HTTPS. The frontend sends HTTP requests to the backend, and the backend responds with JSON-formatted data. HTTPS will ensure all data in transit is encrypted. This protocol handles user authentication, profile creation and updates, location updates, nearby user retrieval, ping requests, and blackout zone management.
+
+For example, when the app requests nearby users, the frontend sends a GET request to `/api/nearby-users` with a JSON body like:
+```json
+{
+  "userId": "peteranteater",
+  "latitude": 33.6405,
+  "longitude": -117.8443
+}
+```
+Then, the backend returns:
+```json
+{
+  "users": [
+    { "id": 1, "name": "Jake", "interests": ["running", "music"], "distance": 1.2 },
+    { "id": 2, "name": "Layla", "interests": ["gaming", "art"], "distance": 0.7 }
+  ]
+}
+```
+
+**WebSockets**  
+WebSockets will be used for features requiring real-time, two-way communication, such as live chat messaging, incoming ping notifications, and radius-exit alerts. Unlike REST, which requires the client to repeatedly ask the server for updates, WebSockets keep an open connection so the server can push updates instantly. We plan to use Socket.io, a JavaScript library that simplifies WebSocket implementation and handles reconnection logic automatically.
+
+**SQL and Spatial Queries — PostGIS**  
+The backend internally communicates with the PostgreSQL database using SQL queries. For proximity-based matching, PostGIS spatial functions filter users within the 2-mile radius directly at the database level rather than retrieving all users and calculating distances manually in JavaScript, which is more efficient.
 
 ## Examples of Component Functions and Connector Communications
 
