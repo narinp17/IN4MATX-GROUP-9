@@ -27,3 +27,10 @@ We paid attention to the slides the TA presented.
 
 #### Meeting 4 (May 8, 2026) / In-person discussion
 Project update for HW 2 (Architecture)
+
+#### Meeting 5 (May 15, 2026)
+Introduction to HW 3 and HW 4 instructions/requirements
+Start working on UI on Figma  
+
+#### Meeting 6 (May 22, 2026)
+Project update for HW 3 (UI) 
