@@ -19,3 +19,24 @@
 ## Privacy/Settings Screen
 
 
+# Heuristic Evaluation
+### Visibility of system status
+- h
+### Match system words to the real world
+- 
+### User control and freedom
+- 
+### Consistency and standards
+- 
+### Error prevention
+- 
+### Recognition rather than recall
+- 
+### Accelerators
+- 
+### Minimalist design
+- 
+### Help users recognize and recover from errors
+- 
+### Help and documentation
+- 
