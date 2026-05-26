@@ -2,7 +2,8 @@
 
 ## Theme Branding
 
-<img width="836" height="651" alt="image" src="https://github.com/user-attachments/assets/552643bb-0d4d-4fef-9e4a-2e1d74f92aeb" />
+<img width="704" height="605" alt="image" src="https://github.com/user-attachments/assets/4e4573c3-3c89-4cfc-ba7b-03d1b37b3d69" />
+
 
 
 ## Onboarding/Login Screen
