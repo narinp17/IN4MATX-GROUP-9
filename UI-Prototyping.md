@@ -1,3 +1,4 @@
+
 # User Interface Mockups and Analysis
 
 ## Theme Branding
@@ -17,7 +18,7 @@
 
 
 ## Privacy/Settings Screen
-
+<img width="478" height="1041" alt="Screenshot 2026-05-26 165039" src="https://github.com/user-attachments/assets/248dd3bd-4b92-41e3-a287-0c2fcb70ab9e" />
 
 # Heuristic Evaluation
 ### Visibility of system status
