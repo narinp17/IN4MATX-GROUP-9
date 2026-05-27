@@ -19,7 +19,7 @@
 
 ## Privacy/Settings Screen
 <img width="478" height="1041" alt="Screenshot 2026-05-26 165039" src="https://github.com/user-attachments/assets/248dd3bd-4b92-41e3-a287-0c2fcb70ab9e" />
-
+The Settings tab allows users fast and convenient control over their accounts, privacy, and other application-related settings. The options include editing user profile pictures, adjusting privacy and security settings such as locations services and passwords, managing user account information and emails, setting up application themes, and signing out.
 # Heuristic Evaluation
 ### Visibility of system status
 - h
