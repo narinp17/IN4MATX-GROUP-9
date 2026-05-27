@@ -8,6 +8,8 @@
 ## Onboarding/Login Screen
 <img width="274" height="616" alt="image" src="https://github.com/user-attachments/assets/646b66e9-5617-4f03-b2ad-d9a17330a2dc" />   <img width="280" height="626" alt="image" src="https://github.com/user-attachments/assets/8e7ba339-be72-45eb-b179-512b6584ede7" />
 
+The Onboarding/Login screen provide users with a simple and welcoming introduction to the Friendli application. These screens allow users to create an account, securely log in, and begin personalizing their experience within the app. Features include user authentication through email and password, account creation for new users, and an intuitive interface designed to make navigation easy for first-time users.
+
 ## Profile Screen
 
 
