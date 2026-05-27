@@ -4,6 +4,8 @@
 
 <img width="704" height="605" alt="image" src="https://github.com/user-attachments/assets/4e4573c3-3c89-4cfc-ba7b-03d1b37b3d69" />
 
+The design process began with low-fidelity wireframes in Figma to establish layout and flow. After defining the app's branding, typography, and color palette, these wireframes were refined into medium-to-high fidelity mockups shown below, with some placeholder content representing where real user-generated text and interactions would appear.
+
 ## Onboarding/Login Screen
 <img width="220" alt="image" src="https://github.com/user-attachments/assets/646b66e9-5617-4f03-b2ad-d9a17330a2dc" />   <img width="220" alt="image" src="https://github.com/user-attachments/assets/8e7ba339-be72-45eb-b179-512b6584ede7" />
 
@@ -22,7 +24,7 @@ The ping/chat screen facilitates real-time, direct communication between users i
 ## Map/Location Screen
 <img width="220" alt="Screenshot 2026-05-27 at 3 19 20 AM" src="https://github.com/user-attachments/assets/b811cb1f-1983-490f-83a2-6445499a60ad" />
 
-The Map/Location screen displays nearby users within a fixed 2-mile radius who share at least one common interest with the current user. Each user is represented as a pin on the map, which can be tapped to view a brief profile preview and send a ping. Below the map, a scrollable list view provides an alternative way to browse nearby users, showing their display name, shared interest tags, and distance. The screen dynamically refreshes as the user moves to reflect updated matches in real time. Users interact by tapping pins on the map to preview nearby users and tapping the ping button to initiate contact, or by browsing the list view below and tapping a user card to do the same. A bottom navigation bar provides quick access to the Map, Friends, Chat, and Profile sections, intended to be consistent across all screens in a future update.
+The Map/Location screen displays nearby users within a fixed 2-mile radius who share at least one common interest with the current user. Each user is represented as a pin on the map, which can be tapped to view a brief profile preview and send a ping. Below the map, a scrollable list view provides an alternative way to browse nearby users, showing their display name, shared interest tags, and distance. The screen dynamically refreshes as the user moves to reflect updated matches in real time. Users interact by tapping pins on the map to preview nearby users and tapping the ping button to initiate contact, or by browsing the list view below and tapping a user card to do the same. A bottom navigation bar provides quick access to the Map, Friends, Chat, and Profile sections, intended to be consistent across most screens in a future update.
 
 ## Privacy/Settings Screen
 <img width="220" alt="Screenshot 2026-05-26 165039" src="https://github.com/user-attachments/assets/248dd3bd-4b92-41e3-a287-0c2fcb70ab9e" />
