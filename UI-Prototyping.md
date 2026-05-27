@@ -29,20 +29,28 @@ The Settings tab allows users fast and convenient control over their accounts, p
 ### Visibility of system status
 - The application will have loading animations, confirmation alerts, and visual cues on each and every screen to help users know what is happening in real time, whether it is a location update, sending a friend request, or making profile updates.
 ### Match system words to the real world
-- 
+- The app uses familiar and easy to understand terms such as "Friends Nearby", "Interests", and "Profile"
 ### User control and freedom
-- 
+- Users can enable or disable location sharing at any time
+- Users can edit profiles, manage privacy settings, and log out whenever they choose
 ### Consistency and standards
-- 
+- Consistent colors, fonts, buttons, and navigation are used throughout the application
+- Similar layouts and interactions help users quickly learn how to use the app
 ### Error prevention
-- 
+- Input validation prevents users from entering incorrect information
+- Confirmation prompts help prevent accidental actions such
 ### Recognition rather than recall
-- 
+- Clear labels, icons, and navigation menus help users recognize features easily
+- Important options and settings are visible rather than hidden
 ### Accelerators
-- 
+- Quick-access navigation tabs allow users to move efficiently throughout the app
+- Saved login information and autofill features helps speed up common tasks
 ### Minimalist design
-- 
+- The interface uses a clean and uncluttered layout
+- Only essential information and actions are displayed on each screen
 ### Help users recognize and recover from errors
-- 
+- Clear error messages explain what went wrong and how to fix it
+- Examples include incorrect passwords, invalid emails, or disabled location permissions
 ### Help and documentation
-- 
+- The app includes onboarding/login tutorials, FAQs, and support resources
+- Users can access help documentation to better understand app features and troubleshoot issues
