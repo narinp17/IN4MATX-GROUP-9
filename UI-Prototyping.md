@@ -12,9 +12,12 @@ The Onboarding/Login screen provide users with a simple and welcoming introducti
 ## Profile Screen
 <img width="201" height="404" alt="Screenshot 2026-05-26 at 8 48 06 PM" src="https://github.com/user-attachments/assets/30915970-8386-4f57-aeaf-13e27be46eed" />
 
+The profile screen provides a comprehensive overview of an individual user's identity within the Friendli application. It is designed to help users quickly evaluate mutual interests and connect with others. Key elements include a prominent profile picture and user name header, a desginated "Tags" section displaying personal interests or hashtags, and a detailed "Bio" container for custom text descriptions. Actionable features at the bottom allow users to seamlessly send a friend request or initiate a direct converation.
+
 ## Ping/Chat Screen
 <img width="188" height="400" alt="Screenshot 2026-05-26 at 8 48 15 PM" src="https://github.com/user-attachments/assets/844a7ca2-f882-427f-9ab1-f3d3a016b604" />
 
+The ping/chat screen facilitates real-time, direct communication between users in a clean and intuitibe conversation layout. The interface features a top navifation bar highlighting the user's name, profile icon, and shared "Similar Tags" tp maintain context of mutual interests. Messages are organized into distinct, color-coded text bubbles separated by timestamps to indicate chronological flow, with an input field and send action button at the bottom for fluid, uninterrupted messaging.
 
 ## Map/Location Screen
 
