@@ -25,7 +25,7 @@ The Settings tab allows users fast and convenient control over their accounts, p
 # Heuristic Evaluation
 
 ### Visibility of system status
-- h
+- The application will have loading animations, confirmation alerts, and visual cues on each and every screen to help users know what is happening in real time, whether it is a location update, sending a friend request, or making profile updates.
 ### Match system words to the real world
 - 
 ### User control and freedom
