@@ -31,10 +31,10 @@ Project update for HW 2 (Architecture)
 
 #### Meeting 5 (May 15, 2026) / In-person discussion
 Present: Narin, Jolene, Jett, Anya, Steven  
-Introduction to HW 3 and HW 4 instructions/requirements
+Introduction to HW 3 and HW 4 instructions/requirements  
 Start working on UI on Figma  
 
 #### Meeting 6 (May 22, 2026) / In-person discussion
 Present: Anya, Jolene, Steven  
-Discussed with the TA / Project update for HW 3 (UI) 
-Continue working on the UI (HW 3)
+Discussed with the TA / Project update for HW 3 (UI)  
+Continue working on the UI (HW 3)  
