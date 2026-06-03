@@ -83,5 +83,20 @@ Last updated: 2026-06-02 (commit 9f41d20)
 | Unit | 23 | `calculateDistance` returns ~0 for identical coords; `isInsideBlackoutZone` returns true when inside radius |
 | Integration | 12 | Ping: sending creates a pending record; `filterNearbyUsers`: excludes users beyond 2-mile radius |
 
+## 2.4 Where the Tests Live + How to Run Them
+
+Run commands:
+```bash
+cd src
+npm install
+npx jest
+npx jest --coverage
+```
+
+| Category | Time | Where it runs |
+|---|---|---|
+| Unit | ~1s | local |
+| Integration | ~1s | local |
+
 # Part 3 - Reflection
 
