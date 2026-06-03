@@ -85,6 +85,21 @@ Last updated: 2026-06-02 (commit 9f41d20)
 
 ## 2.4 Where the Tests Live + How to Run Them
 
+```
+src/tests/
+├── all.test.js                  ← master test file (run this)
+├── unit/
+│   ├── location.test.js
+│   ├── interests.test.js
+│   ├── blackout.test.js
+│   └── timeAgo.test.js
+├── integration/
+│   ├── ping.test.js
+│   └── nearby.test.js
+└── coverage/
+    └── index.html               ← open in browser to view coverage report
+```
+
 Run commands:
 ```bash
 cd src
