@@ -1,4 +1,4 @@
-# Architecture
+# HW 2 - Architecture
 
 ## Overall Architecture Summary
 
