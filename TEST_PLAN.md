@@ -65,7 +65,23 @@ Definitions
 
 
 # Part 2 - Tests Implemented & Reports
+## 2.1 Required Minimums
 
+Last updated: 2026-06-02 (commit 9f41d20)
+
+| Category | Required? | Minimum | Achieved |
+|---|---|---|---|
+| Unit tests | Required | ≥ 5 | 23 |
+| Integration tests | Required | ≥ 3 | 12 |
+
+## 2.3 Tests by Category
+
+Last updated: 2026-06-02 (commit 9f41d20)
+
+| Category | Count | Examples |
+|---|---|---|
+| Unit | 23 | `calculateDistance` returns ~0 for identical coords; `isInsideBlackoutZone` returns true when inside radius |
+| Integration | 12 | Ping: sending creates a pending record; `filterNearbyUsers`: excludes users beyond 2-mile radius |
 
 # Part 3 - Reflection
 
