@@ -100,3 +100,6 @@ npx jest --coverage
 
 # Part 3 - Reflection
 
+Testing the blackout zone feature caught a real bug we hadn't noticed. When a user entered a blackout zone, the backend was doing its job, it stopped sending match data right away. But the frontend never got the memo. The old profiles were still sitting there on the screen, visible and clickable, even though the backend had already cut them off. We only found this because we wrote one test for the API response and a separate test for what the UI was actually showing. Every time we tested mmanually, we refreshed the page after triggering the zone change, so the stale data vanished and we never saw the problem. The tests caught what our manual process was accidentally hiding.
+
+
