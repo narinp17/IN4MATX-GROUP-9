@@ -15,3 +15,36 @@
 | Component / Feature | Why this matters |
 | -------- | -------- |
 | | |
+
+
+## 1.2 Quality Goals:
+
+To ensure a deterministic release criteria, our quality goals focus on spatial accuracy, privacy boundaries, and stable performance profiles.
+
+- Special Consistency: PostGIS proximity filtering must yield a 0% false-positive rate for matching targets outside the 2-mile uniform radius boundary
+- Privacy Ironclad Clause: Zero record of any historical user locations or transitory chat messages may persist in PostgreSQL once a session terminates or a user relocates out of range
+- Throughput Resiliency: Node.js/Express backend handles 50 concurrent simulated local connections emoitting location updates simultaneously without dropping WebSocket frames or throwing HTTP 500 errors
+- Latency Benchmark: The p95 response time for spatial queries processed through the database layer must remain under 300 ms locally
+- Input intergrity: 100% of bio submission payloads over 300 characters or containing banned text strings are successfully intercepted and rejected prior to database persistence layers
+
+
+## 1.3 Risks & Priorities
+
+The structural mechanics of real-time location streaming and ephemeral state management introduce complex race conditions
+
+| Area | Why it's risky / costly | Priority (H / M / L) |
+| -------- | -------- | -------- |
+| | | | |
+
+
+## 1.4 Strategy
+
+Definitions
+- Unit test: Verifies isolated code modules (individual functions, utility blocks, validation models) by executing them independently of outside architecture and using strict data mocks
+- Integration test: Verifies that separate structural sub-systems (such as the communication loop between an Express router, a PostGIS database query, and a WebSocket socket) interact smoothly and return the expected states.
+
+| Component | Test types you'll apply | Framework | Why this fit |
+| -------- | -------- | -------- | -------- |
+| Mobile Frontend (HTML/JS Prototype) | Unit, UI Validaton | Jest | Provides a zero-dependency environment ideal for checking character counters, mock coordinate entries, and UI button states |
+| Backend Server (Node.js/Express) | Integration, API Routing | SuperTest & Mocha/Chai | SuperTest allows programmatic simulation of REST endpoints and WebSocket handshakes without spinning up manual local servers |
+| Database (PostgreSQL/PostGIS) | Integration, Spatial Verification | pgTAP & Custom SQL Scripts | Enables native assertion of spatial distance queries and verifies database triggers for cleanup rules directly inside PostgreSQL |
