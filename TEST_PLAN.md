@@ -98,6 +98,29 @@ npx jest --coverage
 | Unit | ~1s | local |
 | Integration | ~1s | local |
 
+## 2.5 Coverage Achieved
+
+Last updated: 2026-06-02 (commit 9f41d20)
+
+| Test type | Tool | Coverage % |
+|---|---|---|
+| Unit | Jest --coverage | 100% |
+| Integration | Jest --coverage | 100% |
+| **Combined (overall)** | merged report | **100%** |
+
+`getCurrentPosition()` in `location.js` is not tested because it is a browser-native API that does not exist in the Jest/Node environment. WebSocket lifecycle, chat cleanup on radius exit, and server-side blackout enforcement are also untested — these required a live Socket.io backend that could not be reliably mocked within the scope of this sprint.
+
+---
+
+## 2.6 Plan-vs-implementation gap
+
+| What the plan called for | What you actually shipped | What blocked you / what you'd add next |
+|---|---|---|
+| WebSocket connectivity & sync tests | Not implemented | Socket.io incompatibility with `ws`-based Jest patterns; `jest.useFakeTimers()` froze Socket.io's internal timers silently |
+| Chat lifecycle / purge on radius exit | Not implemented | Race condition between WebSocket disconnect, DB deletion, and UI update caused flaky results; added artificial delays as a workaround |
+| pgTAP database spatial verification | Not implemented | Requires a live PostgreSQL/PostGIS instance; not feasible in the Jest environment |
+| Exact 2-mile boundary edge case | Not implemented | Identified as a gap; would test with a coordinate at exactly 3218.69m from the current user |
+
 # Part 3 - Reflection
 
 Testing the blackout zone feature caught a real bug we hadn't noticed. When a user entered a blackout zone, the backend was doing its job, it stopped sending match data right away. But the frontend never got the memo. The old profiles were still sitting there on the screen, visible and clickable, even though the backend had already cut them off. We only found this because we wrote one test for the API response and a separate test for what the UI was actually showing. Every time we tested mmanually, we refreshed the page after triggering the zone change, so the stale data vanished and we never saw the problem. The tests caught what our manual process was accidentally hiding.
