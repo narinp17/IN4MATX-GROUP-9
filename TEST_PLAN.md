@@ -34,7 +34,11 @@ The structural mechanics of real-time location streaming and ephemeral state man
 
 | Area | Why it's risky / costly | Priority (H / M / L) |
 | -------- | -------- | -------- |
-| | | | |
+| Blackout Zone Failure via Signla Drop | if the app drops GPS connectivity inside a user's defined blackout zone, their true private location could be falsely exposed to nearby users | H |
+| Orphaned Transitory Chats | If a socket connection disconnects unexpectedly, messages could persist in database memory instead of purging cleanly, violating privacy mandates | H |
+| High Frequency Location Polling Concurrency | Dozens of active clients concurrently pushing updates to /api/nearby-users can cause lock contentions during spatial indexing operations | M |
+| ID Document Deletion Timing | Retaining ID records on local file paths due to uncaught server exceptions creates direct redulatory compliance violations | H |
+| Relative Activity Label Rendering | Discrepancies in displaying calculated relative timestamps (e.g., "Active 5 mins ago") under clock desynchronization conditions is a minor cosmetic anomaly | L |
 
 
 ## 1.4 Strategy
@@ -48,10 +52,18 @@ Definitions
 | Mobile Frontend (HTML/JS Prototype) | Unit, UI Validaton | Jest | Provides a zero-dependency environment ideal for checking character counters, mock coordinate entries, and UI button states |
 | Backend Server (Node.js/Express) | Integration, API Routing | SuperTest & Mocha/Chai | SuperTest allows programmatic simulation of REST endpoints and WebSocket handshakes without spinning up manual local servers |
 | Database (PostgreSQL/PostGIS) | Integration, Spatial Verification | pgTAP & Custom SQL Scripts | Enables native assertion of spatial distance queries and verifies database triggers for cleanup rules directly inside PostgreSQL |
+| Cross-cutting (Concurrency/Load) | Stress, Race Condition Checks | Autocannon/k6 | Lightweight JavaScript-driven performance tool built to assert high-concurrency HTTP paths and WebSocket stream ceilings |
 
 
 ## 1.5 Environment & assumptions
 
+out automated test design is decoupled from the live infrastructure tier and is xconfigured to run deterministically on developers' workstations
+
+- Runtime Engines: Tests assume local developer execution on Node.js v20.x and PostgreSQL v15+ featuring an active PostGIS extension
+- Database Isolation: Tests operate on an isolated local database instance populated with geometric coordinates. State is explicitly rolled back or wiped via TRUNCATE hooks before and after every test execution block
+- API Mocks and Sandboxes: External verification endpoints are completely stubbed out. The third-party verification process returns deterministic mock payloads ({ verified: true, delete_immediate: true}) instantaneously
+- State Management: No persistent global state is shared across tests; WebSocket sessions are closed programmatically immediately upon test completion to clean up the loop handlers
+- Operating Systems: Local setups run natively on macOS/Windows environments, with integration tasks mapped to match Linux Ubuntu runners within a GitHUb Actions CI pipeline
 
 ## 1.6 Team roles
 
@@ -65,6 +77,7 @@ Definitions
 
 
 # Part 2 - Tests Implemented & Reports
+
 ## 2.1 Required Minimums
 
 Last updated: 2026-06-02 (commit 9f41d20)
