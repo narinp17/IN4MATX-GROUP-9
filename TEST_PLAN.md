@@ -2,7 +2,8 @@
 
 ## 1.1 Scope:
 
-| Header 1 | Header 2 | Header 3 |
-| -------- | -------- | -------- |
-| Row 1 A  | Row 1 B  | Row 1 C  |
-| Row 2 A  | Row 2 B  | Row 2 C  |
+  In Scope
+| Component / Feature | Why this matters |
+| -------- | -------- |
+| Location Matching & Proximity Filtering  | Primary application mechanic; failures risk revealing incorrect distances or leaking profiles outside the 2-mile boundary  |
+| Row 2 A  | Row 2 B  |
