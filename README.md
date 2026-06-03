@@ -37,3 +37,6 @@ Start working on UI on Figma
 Present: Anya, Jolene, Steven  
 Discussed with the TA / Project update for HW 3 (UI)  
 Continue working on the UI (HW 3)  
+
+#### Meeting 7 (May 29, 2026) / In-person discussion  
+Group presentation demos
