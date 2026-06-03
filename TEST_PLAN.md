@@ -71,11 +71,11 @@ out automated test design is decoupled from the live infrastructure tier and is 
 
 | Member | Owns which test categories / components |
 | -------- | -------- |
-| Anya Rajesh | |
-| Narin Park | |
-| Jolene Kwan | |
-| Jett Chanka | |
-| Steven Liu | |
+| Anya Rajesh | Test planning, coordination, and integration across all components; owns 1.3 Risks & Priorities |
+| Narin Park | Frontend unit tests — UI validation, character limits, coordinate input mocks (Jest) |
+| Jolene Kwan | Frontend UI testing — button states, profile display, blackout zone UI behavior (Jest) |
+| Jett Chanka | Database integration tests — PostGIS spatial queries, cleanup triggers, pgTAP scripts |
+| Steven Liu | Backend integration tests — Express API routing, WebSocket lifecycle, SuperTest & Mocha/Chai |
 
 
 # Part 2 - Tests Implemented & Reports
