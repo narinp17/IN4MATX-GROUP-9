@@ -48,3 +48,24 @@ Definitions
 | Mobile Frontend (HTML/JS Prototype) | Unit, UI Validaton | Jest | Provides a zero-dependency environment ideal for checking character counters, mock coordinate entries, and UI button states |
 | Backend Server (Node.js/Express) | Integration, API Routing | SuperTest & Mocha/Chai | SuperTest allows programmatic simulation of REST endpoints and WebSocket handshakes without spinning up manual local servers |
 | Database (PostgreSQL/PostGIS) | Integration, Spatial Verification | pgTAP & Custom SQL Scripts | Enables native assertion of spatial distance queries and verifies database triggers for cleanup rules directly inside PostgreSQL |
+
+
+## 1.5 Environment & assumptions
+
+
+## 1.6 Team roles
+
+| Member | Owns which test categories / components |
+| -------- | -------- |
+| Anya Rajesh | |
+| Narin Park | |
+| Jolene Kwan | |
+| Jett Chanka | |
+| Steven Liu | |
+
+
+# Part 2 - Tests Implemented & Reports
+
+
+# Part 3 - Reflection
+
