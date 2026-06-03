@@ -14,8 +14,10 @@
  Out of Scope
 | Component / Feature | Why this matters |
 | -------- | -------- |
-| | |
-
+| Third-Party Identity Verification Service | External provider; behavior is fully stubbed with mock payloads — internal logic is outside our control |
+| App Store Deployment & Device Compatibility | Device-level OS and browser compatibility testing falls outside the scope of functional and integration verification |
+| Payment or Subscription Flows | No monetization layer exists in the current prototype |
+| UI Visual Design & Animations | Aesthetic rendering, CSS transitions, and layout pixel-accuracy are not functional correctness concerns |
 
 ## 1.2 Quality Goals:
 
