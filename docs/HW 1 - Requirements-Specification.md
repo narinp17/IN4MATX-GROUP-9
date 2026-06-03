@@ -1,4 +1,4 @@
-# HW 1 - Requirements Specification Document
+# Requirements Specification Document
 
 # Friendli
 Team Members:  
