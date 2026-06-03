@@ -104,4 +104,6 @@ Testing the blackout zone feature caught a real bug we hadn't noticed. When a us
 
 The hardest thing to test was what happens when a user walks out of the 2-mile radius during an active chat. The app is supposed to disconnect the WebSocket, delete the chat history from the database, and update the UI all at once. The problem is these three things run on separate systems and there's no guarantee they finish in the same order every time. When we wrote tests for it, they would pass sometimes and fail other times depending on timing, which makes them basically useless. We ended up adding artificial wait times to force things to sync up, but that just made the tests slow. It's a genuinely hard problem because we are trying to test three moving parts that don't know about each other.
 
+Next, we would add a test for when both users leave the radius at the exact same time. Right now we only test one person leaving while the other stays put. If both exit simultaneously, the cleanup code could try to delete the same chat session twice, or accidentally leave one person's connection still open. We'd simulate this by firing both location updates at the same time using Promise.all and then checking that the session is completely gone and both users are disconnected.
+
 
