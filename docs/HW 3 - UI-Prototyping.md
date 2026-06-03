@@ -1,4 +1,4 @@
-# HW 3 - User Interface Mockups and Analysis
+# User Interface Mockups and Analysis
 
 ## Theme Branding
 
