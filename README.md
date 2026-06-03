@@ -1,39 +1,39 @@
-**Welcome to your Base44 project** 
+# IN4MATX-GROUP-9
 
-**About**
+#### Roles
+Anya - Project Manager  
+Jolene - Product Designer  
+Narin - UI/UX Designer  
+Jett - Architect  
+Steven - Programmer  
 
-View and Edit  your app on [Base44.com](http://Base44.com) 
 
-This project contains everything you need to run your app locally.
+#### Meeting 1 (April 17th, 2026) / In-person discussion
+Present: Narin, Jolene, Jett, Anya, Steven (All in-person)  
+We created our group git repository with all members and worked on our requirement specification document.
+We looked through the optional requirements and picked 5 different options that we liked the most as well as
+2 other requirements that we wanted.
 
-**Edit the code in your local development environment**
+#### Meeting 2 (April 24th, 2026) / In-person discussion
+Present: Jolene, Anya, Steven  
+We pitched our project (presented to the class) and updated a few program features).
+To do: Finish the requirements specification document by Wednesday April 29 at 1pm.
 
-Any change pushed to the repo will also be reflected in the Base44 Builder.
 
-**Prerequisites:** 
+#### Meeting 3 (May 1, 2026) / In-person discussion
+We paid attention to the slides the TA presented.
 
-1. Clone the repository using the project's Git URL 
-2. Navigate to the project directory
-3. Install dependencies: `npm install`
-4. Create an `.env.local` file and set the right environment variables
+#### Meeting 4 (May 8, 2026) / In-person discussion
+Present: Narin, Jolene, Jett, Anya, Steven  
+Project update for HW 2 (Architecture)
 
-```
-VITE_BASE44_APP_ID=your_app_id
-VITE_BASE44_APP_BASE_URL=your_backend_url
 
-e.g.
-VITE_BASE44_APP_ID=cbef744a8545c389ef439ea6
-VITE_BASE44_APP_BASE_URL=https://my-to-do-list-81bfaad7.base44.app
-```
+#### Meeting 5 (May 15, 2026) / In-person discussion
+Present: Narin, Jolene, Jett, Anya, Steven  
+Introduction to HW 3 and HW 4 instructions/requirements  
+Start working on UI on Figma  
 
-Run the app: `npm run dev`
-
-**Publish your changes**
-
-Open [Base44.com](http://Base44.com) and click on Publish.
-
-**Docs & Support**
-
-Documentation: [https://docs.base44.com/Integrations/Using-GitHub](https://docs.base44.com/Integrations/Using-GitHub)
-
-Support: [https://app.base44.com/support](https://app.base44.com/support)
+#### Meeting 6 (May 22, 2026) / In-person discussion
+Present: Anya, Jolene, Steven  
+Discussed with the TA / Project update for HW 3 (UI)  
+Continue working on the UI (HW 3)  
