@@ -1,7 +1,5 @@
 # Friendli — Test Suite
 
-Everything you need is in this folder.
-
 ## Structure
 
 ```
